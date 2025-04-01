@@ -1,5 +1,5 @@
-<div class="d-flex align-items-center justify-content-center vh-100 bg-light">
-    <div class="card shadow-sm p-4" style="width:400px">
+<div class="d-flex align-items-center justify-content-center vh-100 bg-danger-subtle">
+    <div class="card shadow-sm p-4" style="width:500px" >
         <h2 class="text-center mb-4">Login</h2>
 
         @if(session()->has('error'))
@@ -17,7 +17,7 @@
                 <input type="password" id="password" wire:model="password" class="form-control" placeholder="Digite sua senha">
                 @error('password') <span class="text-danger small">{{$message}}</span>@enderror
             </div>
-            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            <button type="submit" class="btn btn-success w-100" >Entrar</button>
         </form>
 
     </div>

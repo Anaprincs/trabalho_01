@@ -23,14 +23,24 @@ class Login extends Component
     ];
 
 
-public function login(){
-    $this->validate();
-    if(Auth::attempt(['email'=>$this->email, 'password'=>$this->password])){
-        session()->regenerate();
-        return redirect()->route(Auth::user()->role === 'admin' ? 'admin.dashboard': 'user.dashboard' );
+    public function login()
+    {
+        $this->validate();
+        if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            session()->regenerate();
+
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+            if (Auth::user()->role === 'cliente') {
+                return redirect()->route('cliente.dashboard');
+            }
+            if (Auth::user()->role === 'funcionarios') {
+                return redirect()->route('funcionarios.dashboard');
+            }
+        }
+        session()->flash('error', 'Email ou senha incorretos');
     }
-    session()->flash('error', 'Email ou senha incorretos');
-}
 
 
     public function render()
