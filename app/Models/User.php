@@ -19,7 +19,7 @@ class User extends Authenticatable
 
 const ROLE_CLIENTE = 'cliente';
 const ROLE_FUNCIONARIO = 'funcionario';
-const ROLE_ADMINISTRADOR = 'admin';
+const ROLE_ADMIN = 'admin';
 
 
 
@@ -50,5 +50,19 @@ const ROLE_ADMINISTRADOR = 'admin';
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function isAdmin(){
+        return $this->role === self::ROLE_ADMIN;
+    }
+    public function isCliente(){
+        return $this->role === self::ROLE_CLIENTE;
+    }
+    public function isFuncionarios(){
+        return $this->role === self::ROLE_FUNCIONARIO;
+    }
+
+    public function cliente(){
+        return $this->hasOne(Cliente::class);
     }
 }
