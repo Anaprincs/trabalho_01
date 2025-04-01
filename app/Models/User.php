@@ -16,6 +16,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+const ROLE_CLIENTE = 'cliente';
+const ROLE_FUNCIONARIO = 'funcionario';
+const ROLE_ADMINISTRADOR = 'admin';
+
+
+
+
     protected $fillable = [
         'name',
         'email',
