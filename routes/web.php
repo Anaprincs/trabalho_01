@@ -14,12 +14,12 @@ Route::get('/admin', function()
 })->middleware('auth', 'role:admin')->name('admin.dashboard');
 
 Route::get('/user', function(){
-    return 'login admin';
+    return 'login user';
 })->middleware('auth','role:user')->name('user.dashboard');
 
 Route::get('/cliente', function(){
     return 'login cliente';
-})->middleware('auth','role:cliente')->name('cliente.dashboard');
+})->middlweware('auth','role:cliente')->name('cliente.dashboard');
 
 
 Route::get('/cliente/create', Create::class);

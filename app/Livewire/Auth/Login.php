@@ -29,14 +29,16 @@ class Login extends Component
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             session()->regenerate();
 
+        
+
             if (Auth::user()->role === 'admin') {
                 return redirect()->route('admin.dashboard');
             }
             if (Auth::user()->role === 'cliente') {
                 return redirect()->route('cliente.dashboard');
             }
-            if (Auth::user()->role === 'funcionarios') {
-                return redirect()->route('funcionarios.dashboard');
+            if (Auth::user()->role === 'funcionario') {
+                return redirect()->route('funcionario.dashboard');
             }
         }
         session()->flash('error', 'Email ou senha incorretos');

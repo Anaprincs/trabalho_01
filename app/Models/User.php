@@ -27,6 +27,7 @@ const ROLE_ADMIN = 'admin';
     protected $fillable = [
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -58,7 +59,7 @@ const ROLE_ADMIN = 'admin';
     public function isCliente(){
         return $this->role === self::ROLE_CLIENTE;
     }
-    public function isFuncionarios(){
+    public function isFuncionario(){
         return $this->role === self::ROLE_FUNCIONARIO;
     }
 
